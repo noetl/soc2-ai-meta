@@ -1,4 +1,6 @@
-# Playbook: Cross-Repo Change
+# Cross-Repo Change Playbook
+
+Canonical checklist for changes spanning multiple submodules.
 
 ## Inputs
 

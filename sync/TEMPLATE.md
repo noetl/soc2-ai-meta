@@ -21,7 +21,7 @@
 ## Compatibility / Notes
 - Backward compatible: <yes/no>
 - Migration required: <yes/no + details>
-- Config impact: <none / describe>
+- Config/DSL impact: <none / describe>
 - Known risks: <bullets>
 
 ## Follow-ups
@@ -34,5 +34,5 @@
 
 ## Verification
 - Tests run: <local/ci + what>
-- Environments verified: <local/staging/prod>
+- Environments verified: <local/kind/staging/prod>
 - Observability notes: <metrics/logs/traces if relevant>

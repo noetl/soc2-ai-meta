@@ -1,4 +1,6 @@
-# Playbook: AI Memory Compaction
+# Memory Compaction Playbook
+
+Canonical checklist for compacting inbox entries into stable working memory.
 
 ## Objective
 
@@ -10,10 +12,10 @@ Keep AI memory usable over time by moving raw notes from inbox into compactions 
 2. Review pending entries under `memory/inbox/`.
 3. Run `./scripts/memory_compact.sh`.
 4. Review updated files:
-   - `memory/compactions/<timestamp>.md`
-   - `memory/current.md`
-   - `memory/timeline.md`
-   - `memory/archive/...`
+	- `memory/compactions/<timestamp>.md`
+	- `memory/current.md`
+	- `memory/timeline.md`
+	- `memory/archive/...`
 5. Commit with `memory(compact): <scope>`.
 
 ## Commit chain guidance

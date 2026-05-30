@@ -1,6 +1,6 @@
 # Cursor Rules
 
-This is the ai-meta meta-repository for the **{{PROJECT_NAME}}** ecosystem.
+This is the ai-meta coordination repository for the **{{PROJECT_NAME}}** ecosystem.
 
 ## Mandatory rules
 
@@ -19,6 +19,9 @@ Read the modular rule files in `agents/rules/` for detailed guidance on:
 - Commit conventions (`commit-conventions.md`)
 - Memory workflow (`memory-workflow.md`)
 - Submodule handling (`submodules.md`)
+- Handoffs (`handoffs.md`)
+- Issue tracking (`issue-tracking.md`)
+- Writing style (`writing-style.md`)
 
 ## Behavioral profile
 
@@ -37,3 +40,6 @@ Read `agents/profiles/claude.md` or `agents/profiles/codex.md` for the appropria
 - `memory(curate): <scope>`
 - `chore(sync): bump <repo> to <short-sha>`
 - `docs(agents): <description>`
+- `handoff(open): <slug>`
+- `handoff(result): <slug> round NN`
+- `handoff(close): <slug>`

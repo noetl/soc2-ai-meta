@@ -9,6 +9,7 @@ This repository is the coordination layer and shared memory for the {{PROJECT_NA
 - **Sync notes** under `sync/`
 - **Playbooks** under `playbooks/`
 - **Agent infrastructure** under `agents/`
+- **Cross-agent handoffs** under `handoffs/`
 
 ## Safety rules
 
@@ -25,6 +26,7 @@ Only the following may be committed to this repo:
 - Orchestration docs and checklists (playbooks/, sync/)
 - Submodule pointer updates (repos/*)
 - AI memory entries and compactions (memory/)
+- Handoff prompt/result files (handoffs/active/, handoffs/archive/, handoffs/templates/)
 
 ## Submodule workflow
 
@@ -39,6 +41,9 @@ Only the following may be committed to this repo:
 - `memory(curate): <scope>` — manual current.md refresh
 - `chore(sync): bump <repo> to <short-sha>` — submodule pointer update
 - `docs(agents): <description>` — instruction/agent doc changes
+- `handoff(open): <slug>` — open handoff thread
+- `handoff(result): <slug> round NN` — publish handoff result
+- `handoff(close): <slug>` — archive completed thread
 
 ## Memory workflow
 
@@ -57,5 +62,18 @@ All agents must:
 - Never store secrets or credentials
 - Work inside submodules for code changes
 - Use the memory pipeline for decisions and outcomes
+- Use file-based handoffs for multi-session or cross-agent work
 
 Detailed modular rules are in `agents/rules/`. Behavioral profiles are in `agents/profiles/`.
+
+## Handoff convention
+
+When work spans sessions or tools:
+
+1. Write prompt to `handoffs/active/<slug>/round-NN-prompt.md`
+2. Execute based on that prompt only (self-contained brief)
+3. Write report to `handoffs/active/<slug>/round-NN-result.md`
+4. Open a new round instead of rewriting earlier files
+5. Move completed thread to `handoffs/archive/<slug>/`
+
+See `handoffs/README.md` and `agents/rules/handoffs.md`.

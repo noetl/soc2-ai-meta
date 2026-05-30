@@ -11,11 +11,14 @@ globs:
 - Open PRs and merge in the submodule's upstream repository.
 - Never move files between submodules from the meta-repo root.
 - Never vendor code from one submodule into another.
+- Keep pointer updates small and deterministic where possible.
 
 ## Updating pointers
 
 - After upstream PRs are merged, update the pointer:
   ```
+  git submodule sync --recursive
+  git submodule update --init --recursive
   git submodule update --remote repos/<name>
   git add repos/<name>
   git commit -m "chore(sync): bump <name> to <short-sha>"

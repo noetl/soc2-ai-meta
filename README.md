@@ -4,6 +4,8 @@ Coordination repository and shared memory layer for the **{{PROJECT_NAME}}** eco
 
 This repo tracks all participating repositories as **git submodules**, provides a **Git-tracked long memory** system for AI agents and engineers, and defines shared **rules, skills, and profiles** that any AI coding agent can use.
 
+It also includes a **file-based cross-agent handoff system** so long-running work can move between Claude, Copilot/Codex, Cursor, Gemini, and future tools without losing context.
+
 ## Quick Start
 
 ```bash
@@ -22,6 +24,7 @@ git submodule update --init --recursive
 - **`sync/`** — cross-repo "what changed" notes (PR links, SHAs, follow-ups)
 - **`agents/`** — shared AI agent rules, skills, and profiles
 - **`playbooks/`** — repeatable checklists for common tasks
+- **`handoffs/`** — durable cross-agent prompt/result threads
 - **`scripts/`** — automation helpers (memory_add.sh, memory_compact.sh)
 
 ## Repository Layout
@@ -39,6 +42,10 @@ git submodule update --init --recursive
 │   ├── settings.json                  #   Permissions and hooks
 │   ├── rules -> ../agents/rules       #   Symlink to shared rules
 │   └── skills -> ../agents/skills     #   Symlink to shared skills
+├── handoffs/                          # Cross-agent file handoff channel
+│   ├── active/                        #   In-flight threads
+│   ├── archive/                       #   Closed threads
+│   └── templates/                     #   prompt/result templates
 ├── memory/                            # Long memory store
 │   ├── current.md                     #   Active working state
 │   ├── timeline.md                    #   Chronological index
@@ -59,6 +66,16 @@ git submodule update --init --recursive
 4. **Write sync notes** — capture what changed across repos
 5. **Add memory entries** — record decisions and outcomes
 6. **Compact periodically** — keep active memory small
+
+## Cross-Agent Handoff Workflow
+
+1. Open a thread in `handoffs/active/<YYYY-MM-DD-slug>/`
+2. Dispatcher writes `round-NN-prompt.md`
+3. Executor writes `round-NN-result.md`
+4. Continue with additional rounds as needed
+5. Move completed thread to `handoffs/archive/`
+
+See `handoffs/README.md` and `agents/rules/handoffs.md`.
 
 ## Memory Commands
 
@@ -94,6 +111,7 @@ This repo supports multiple AI coding agents out of the box:
 | Claude Code | `CLAUDE.md` | Rules, skills, settings, hooks |
 | GitHub Copilot | `.github/copilot-instructions.md` | Instructions |
 | Cursor | `.cursorrules` | Instructions |
+| Gemini | `GEMINI.md` (optional) | Profile + rules |
 | Any other | `AGENTS.md` | Read manually |
 
 ---

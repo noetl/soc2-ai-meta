@@ -25,10 +25,11 @@ Update a submodule to its latest remote commit and commit the pointer change.
    ```
    git diff repos/$ARGUMENTS
    ```
-4. Show the user the old and new SHA, and the latest commit message in the submodule.
-5. Stage and commit:
+4. Compare old/new SHAs and list merged commits in range.
+5. Confirm related docs/wiki and tracking issues are updated when public surface changed.
+6. Stage and commit:
    ```
    git add repos/$ARGUMENTS
    git commit -m "chore(sync): bump $ARGUMENTS to <short-sha>"
    ```
-6. Ask if they want to push.
+7. Ask if they want to push.
