@@ -1,13 +1,13 @@
 # Copilot Instructions
 
-This is the ai-meta coordination repository for the **{{PROJECT_NAME}}** ecosystem.
+This is the coordination repository for the **{{PROJECT_NAME}}** project template.
 
 ## Mandatory rules
 
 Read and follow `AGENTS.md` at the repository root. Key constraints:
 
 - This repo is public — never store secrets, tokens, or credentials.
-- Do not commit product code — only instructions, memory, playbooks, sync notes, and submodule pointers.
+- Do not commit product code unless this template has been intentionally forked into an active project.
 - Never rewrite history on `main`.
 
 ## Detailed rules
@@ -18,7 +18,7 @@ Read the modular rule files in `agents/rules/` for detailed guidance on:
 - Allowed content (`allowed-content.md`)
 - Commit conventions (`commit-conventions.md`)
 - Memory workflow (`memory-workflow.md`)
-- Submodule handling (`submodules.md`)
+- Repository/link handling (`submodules.md`)
 - Handoffs (`handoffs.md`)
 - Issue tracking (`issue-tracking.md`)
 - External memory systems (`external-memory-systems.md`)
@@ -33,8 +33,8 @@ Read `agents/profiles/claude.md` or `agents/profiles/codex.md` for the appropria
 - Add entries: `./scripts/memory_add.sh "<title>" "<summary>" "<tags>"`
 - Compact: `./scripts/memory_compact.sh`
 - Current state: `memory/current.md`
-- Keep linked GitHub/Jira issue state current for active tasks
-- Keep linked GitHub Wiki/Confluence pages current for changed public surfaces
+- Keep linked GitHub/Jira issue state current for active tasks when those systems are in use
+- Keep linked GitHub Wiki/Confluence pages current for changed public surfaces when those systems are in use
 
 ## Commit conventions
 

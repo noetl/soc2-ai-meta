@@ -1,13 +1,13 @@
 # Cursor Rules
 
-This is the ai-meta coordination repository for the **{{PROJECT_NAME}}** ecosystem.
+This is the coordination repository for the **{{PROJECT_NAME}}** project template.
 
 ## Mandatory rules
 
 Read and follow `AGENTS.md` at the repository root. Key constraints:
 
 - This repo is public — never store secrets, tokens, or credentials.
-- Do not commit product code — only instructions, memory, playbooks, sync notes, and submodule pointers.
+- Do not commit product code unless this template has been intentionally forked into an active project.
 - Never rewrite history on `main`.
 
 ## Detailed rules
@@ -18,7 +18,7 @@ Read the modular rule files in `agents/rules/` for detailed guidance on:
 - Allowed content (`allowed-content.md`)
 - Commit conventions (`commit-conventions.md`)
 - Memory workflow (`memory-workflow.md`)
-- Submodule handling (`submodules.md`)
+- Repository/link handling (`submodules.md`)
 - Handoffs (`handoffs.md`)
 - Issue tracking (`issue-tracking.md`)
 - Writing style (`writing-style.md`)

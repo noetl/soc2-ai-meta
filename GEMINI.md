@@ -7,22 +7,22 @@ Read these files at session start (in order):
 3. `memory/current.md` — active working state
 4. `agents/profiles/gemini.md` — Gemini profile
 5. `agents/rules/` — modular rule set
-6. Open tracked work items (`GitHub Issues` and/or `Jira`) for durable task state
-7. `sync/issues/` — in-flight cross-repo tracking
-8. Linked wiki/doc surfaces (`GitHub Wiki` and/or `Confluence`) for impacted modules
+6. Open tracked work items, if your project uses them
+7. `sync/issues/` — in-flight coordination notes, if your project uses them
+8. Linked wiki/doc surfaces for impacted areas, if your project uses them
 
 ## Workflow highlights
 
 - Use `agents/skills/` workflows when available.
 - Use file-based handoffs in `handoffs/` for cross-session work.
-- Keep product code changes inside `repos/<name>` only.
-- Keep local memory, issues/tickets, and docs memory synchronized for substantive changes.
+- Keep product code changes inside the project source tree unless this repo is intentionally forked into an active project.
+- Keep local memory, issues/tickets, and docs memory synchronized for substantive changes when those systems are in use.
 
 ## Quick checks
 
 - Verify local memory and open tasks are aligned before starting work.
-- Verify impacted wiki/confluence pages are identified before pointer bumps.
-- Confirm tracked issue/ticket updates and docs updates for changed public surfaces.
+- Verify impacted wiki/confluence pages are identified before pointer bumps when those systems are in use.
+- Confirm tracked issue/ticket updates and docs updates for changed public surfaces when those systems are in use.
 
 ## Quick commands
 

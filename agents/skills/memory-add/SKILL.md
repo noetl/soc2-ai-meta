@@ -9,7 +9,7 @@ allowed-tools:
 
 # Add Memory Entry
 
-Create a cross-repo/platform memory entry from the provided arguments and commit it.
+Create a cross-project/platform memory entry from the provided arguments and commit it.
 
 ## Steps
 

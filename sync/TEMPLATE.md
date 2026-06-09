@@ -4,14 +4,14 @@
 - <1–3 bullets: what changed and why>
 
 ## Scope (Repos)
-- repos/<repo-a>: <what changed>
-- repos/<repo-b>: <what changed>
-- repos/<repo-c>: <what changed>
+- <repo-a or area>: <what changed>
+- <repo-b or area>: <what changed>
+- <repo-c or area>: <what changed>
 
 ## PRs / Links
-- <repo-a>: <PR link(s)>
-- <repo-b>: <PR link(s)>
-- <repo-c>: <PR link(s)>
+- <repo-a or area>: <PR link(s)>
+- <repo-b or area>: <PR link(s)>
+- <repo-c or area>: <PR link(s)>
 
 ## External Tracker Links
 - GitHub issue(s): <repo#number or URL>
@@ -22,9 +22,9 @@
 - Confluence page(s): <URL>
 
 ## Resulting SHAs / Tags
-- repos/<repo-a>: <sha or tag>
-- repos/<repo-b>: <sha or tag>
-- repos/<repo-c>: <sha or tag>
+- <repo-a or area>: <sha, tag, or reference>
+- <repo-b or area>: <sha, tag, or reference>
+- <repo-c or area>: <sha, tag, or reference>
 
 ## Compatibility / Notes
 - Backward compatible: <yes/no>

@@ -1,6 +1,6 @@
-# How to Use This Meta-Repo Day-to-Day
+# How to Use This Template Day-to-Day
 
-This is the operational runbook for using this repo as the coordination layer across your ecosystem.
+This is the operational runbook for using this repo as a template for AI-assisted project coordination.
 
 ## 1) Start of day
 
@@ -20,9 +20,9 @@ git status
 git submodule status --recursive
 ```
 
-Expected: clean meta-repo and pinned submodule SHAs.
+Expected: clean workspace and a known baseline state.
 
-Then sync external memory view:
+Then sync external memory view if your project uses it:
 
 - Review open GitHub issues and/or Jira tickets for active work.
 - Open linked GitHub Wiki and/or Confluence pages for touched surfaces.
@@ -35,7 +35,7 @@ Before code changes, create a memory entry:
 ./scripts/memory_add.sh "Start <topic>" "<what will be changed>" "<tags>"
 ```
 
-If the work maps to an upstream issue, add/update a note under `sync/issues/`:
+If the work maps to a tracked item, add/update a note under `sync/issues/`:
 
 - `sync/issues/YYYY-MM-DD-<repo>-issue-<id>-<topic>.md`
 
@@ -48,9 +48,9 @@ Capture:
 - external tracker links (GitHub issue URL and/or Jira key)
 - docs memory links (GitHub Wiki page and/or Confluence page)
 
-## 3) Implement changes in submodules
+## 3) Implement changes in the project source
 
-Use only paths under `repos/` (not sibling folders outside this repo).
+Use the project source tree that owns the code you are changing.
 
 Typical flow per repo:
 
@@ -79,7 +79,7 @@ git push
 Then append a short sync note in `sync/` or `sync/issues/` with:
 
 - merged PR links
-- final submodule SHAs
+- final references or SHAs
 - follow-up actions
 - tracker status updates (GitHub/Jira)
 - docs update links (Wiki/Confluence)
@@ -107,7 +107,7 @@ git push
 ## 6) Rules to enforce every day
 
 - Do not commit secrets, tokens, or private credentials.
-- Do not commit product source code directly to this meta-repo.
-- Commit only instructions, playbooks, sync notes, memory, and submodule SHA bumps.
+- Do not commit product source code directly to this template repo.
+- Commit only instructions, playbooks, sync notes, memory, and coordination references.
 - Keep changes atomic: one coordination concern per commit when possible.
 - Keep local memory, issues/tickets, and docs pages synchronized for substantive changes.

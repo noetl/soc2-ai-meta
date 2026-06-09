@@ -1,6 +1,6 @@
 ---
 name: sync-note
-description: Create a sync note from the template for a cross-repo change
+description: Create a sync note from the template for a cross-project change
 argument-hint: "<topic>"
 allowed-tools:
   - Bash

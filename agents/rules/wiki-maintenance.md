@@ -26,6 +26,6 @@ For Confluence pages, include stable page links in:
 
 ## Rule 3: pointer bump check
 
-When bumping submodule pointers in the meta-repo, verify docs coverage remains accurate for landed changes.
+When bumping linked-repo pointers in the template repo, verify docs coverage remains accurate for landed changes.
 
 If the merged range changed public behavior and no doc update exists, stop and create/update docs before final pointer bump commit.

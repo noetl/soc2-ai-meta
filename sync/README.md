@@ -1,6 +1,6 @@
 # Sync Notes
 
-Store concise cross-repo synchronization notes here.
+Store concise synchronization notes here.
 
 Suggested file naming:
 
@@ -9,10 +9,10 @@ Suggested file naming:
 
 Suggested content:
 
-- repos changed
+- repositories or project areas changed
 - merged PR links
 - linked GitHub issue and/or Jira ticket IDs
-- resulting submodule SHAs
+- resulting references or SHAs
 - linked GitHub Wiki and/or Confluence pages
 - release/deploy follow-ups
 - linked upstream issue(s) when applicable

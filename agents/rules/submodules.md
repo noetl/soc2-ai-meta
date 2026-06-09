@@ -5,12 +5,12 @@ globs:
 
 # Submodule Rules
 
-## Working in submodules
+## Working in linked repositories
 
-- Code changes happen **inside** the relevant `repos/<name>` submodule.
-- Open PRs and merge in the submodule's upstream repository.
-- Never move files between submodules from the meta-repo root.
-- Never vendor code from one submodule into another.
+- Code changes happen **inside** the relevant `repos/<name>` linked repository.
+- Open PRs and merge in the linked repository's upstream repository.
+- Never move files between linked repositories from the template repo root.
+- Never vendor code from one linked repository into another.
 - Keep pointer updates small and deterministic where possible.
 
 ## Updating pointers
@@ -29,9 +29,9 @@ Before committing a pointer bump for substantive changes, verify:
 
 - Linked issue/ticket has a status update (`GitHub` and/or `Jira`).
 - Linked docs memory (`GitHub Wiki` and/or `Confluence`) reflects changed public surfaces.
-- A sync note exists or is updated under `sync/issues/` for cross-repo changes.
+- A sync note exists or is updated under `sync/issues/` for cross-project changes.
 
-## Adding new submodules
+## Adding new linked repositories
 
 - Add with: `git submodule add <remote-url> repos/<name>`
-- Commit with: `chore(sync): add <name> submodule`
+- Commit with: `chore(sync): add <name> linked repository`

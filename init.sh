@@ -122,7 +122,7 @@ echo "  ✓ init.sh removed"
 
 echo "→ Creating initial commit..."
 git add -A
-git commit -m "docs(agents): initialize ${PROJECT_NAME} meta-repo from ai-agent-template"
+git commit -m "docs(agents): initialize ${PROJECT_NAME} project from ai-agent-template"
 echo "  ✓ Initial commit created"
 
 # ── Optional remote setup ────────────────────────────────────
@@ -148,11 +148,11 @@ echo "╚═══════════════════════�
 echo ""
 echo "Next steps:"
 echo ""
-echo "  1. Add your submodules:"
+echo "  1. Add linked repositories or project dependencies as needed:"
 echo "     git submodule add ${REPO_PREFIX}/<repo>.git repos/<repo>"
 echo ""
 echo "  2. Create your first memory entry:"
-echo "     ./scripts/memory_add.sh \"Project initialized\" \"Set up meta-repo\" \"setup\""
+echo "     ./scripts/memory_add.sh \"Project initialized\" \"Set up project workspace\" \"setup\""
 echo ""
 echo "  3. Open in your AI coding agent:"
 echo "     - Claude Code: auto-loads CLAUDE.md, rules, skills, and settings"

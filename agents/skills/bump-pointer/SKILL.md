@@ -1,6 +1,6 @@
 ---
 name: bump-pointer
-description: Update a submodule pointer after upstream merge
+description: Update a linked-repo pointer after upstream merge
 argument-hint: "<repo-name>"
 allowed-tools:
   - Bash
@@ -9,7 +9,7 @@ allowed-tools:
 
 # Bump Submodule Pointer
 
-Update a submodule to its latest remote commit and commit the pointer change.
+Update a linked repository to its latest remote commit and commit the pointer change.
 
 ## Steps
 

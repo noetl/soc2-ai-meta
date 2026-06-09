@@ -2,9 +2,9 @@
 
 ## Repo purpose
 
-This repository is the coordination layer and shared memory for the {{PROJECT_NAME}} ecosystem. It contains:
+This repository is the coordination layer and shared memory for the {{PROJECT_NAME}} project. It can support a monorepo, linked repositories, or a forked starter workflow. It contains:
 
-- All ecosystem repos as **git submodules** under `repos/`
+- Optional linked repos or subprojects under `repos/`
 - A Git-tracked **memory system** under `memory/`
 - **Sync notes** under `sync/`
 - **Playbooks** under `playbooks/`
@@ -13,9 +13,9 @@ This repository is the coordination layer and shared memory for the {{PROJECT_NA
 
 ## Mission
 
-- Orchestrate changes across submodule repositories.
+- Orchestrate changes across project areas, repositories, or workstreams.
 - Keep shared instructions, skills, and rules consistent.
-- Maintain deterministic submodule SHAs for reproducible cross-repo states.
+- Maintain reproducible references for linked repos, releases, or other external dependencies.
 
 ## Foundational execution model
 
@@ -32,7 +32,7 @@ If a proposal moves business data touches into a gateway/client layer or introdu
 ## Safety rules
 
 - This repository is public. Never store secrets, tokens, credentials, or sensitive values.
-- Do not store product code here — product code lives in the submodule repos.
+- Do not store product code here unless this repo is intentionally forked into a working project.
 - Never rewrite history on `main`.
 - Memory updates must be append-only through Git history.
 
@@ -40,12 +40,12 @@ If a proposal moves business data touches into a gateway/client layer or introdu
 
 1. This repository is public. Never store secrets or sensitive values.
 2. Do not store product code here.
-3. Use this repo for orchestration docs, AI instructions, memory, handoffs, sync notes, and submodule pointer updates.
+3. Use this repo for orchestration docs, AI instructions, memory, handoffs, sync notes, and coordination updates.
 4. Keep memory updates append-only through Git history.
 5. Keep pointer updates minimal and deterministic.
 6. Never rewrite history on `main`.
 7. Do not edit previous handoff rounds; append new rounds only.
-8. For substantive changes, update issue/ticket state and docs/wiki state in the same change set.
+8. For substantive changes, update issue/ticket state and docs/wiki state in the same change set when those systems are in use.
 
 ## Allowed content
 
@@ -53,22 +53,22 @@ Only the following may be committed to this repo:
 
 - AI instruction files (CLAUDE.md, AGENTS.md, .claude/, agents/)
 - Orchestration docs and checklists (playbooks/, sync/)
-- Submodule pointer updates (repos/*)
+- Pointer updates or repository-link updates (repos/*)
 - AI memory entries and compactions (memory/)
 - Handoff prompt/result files (handoffs/active/, handoffs/archive/, handoffs/templates/)
 
-## Submodule workflow
+## Repository workflow
 
-- Make code changes **inside** the relevant `repos/<name>` submodule.
-- Open PRs and merge in the submodule's upstream repository.
-- After merge, update the submodule pointer here and commit with `chore(sync): bump <repo> to <sha>`.
+- Make code changes in the repository or project area that owns the code.
+- Open PRs and merge in the upstream repository or main branch you actually use.
+- After merge, update any pointer, link, or reference in this repo if your workflow tracks that state here.
 
 ## Commit conventions
 
 - `memory(add): <topic>` — new memory inbox entry
 - `memory(compact): <scope or date>` — compaction run
 - `memory(curate): <scope>` — manual current.md refresh
-- `chore(sync): bump <repo> to <short-sha>` — submodule pointer update
+- `chore(sync): bump <repo> to <short-sha>` — linked-repo or pointer update
 - `docs(agents): <description>` — instruction/agent doc changes
 - `handoff(open): <slug>` — open handoff thread
 - `handoff(result): <slug> round NN` — publish handoff result
@@ -100,7 +100,7 @@ All agents must:
 - Read `memory/current.md` for active working state
 - Follow commit conventions above
 - Never store secrets or credentials
-- Work inside submodules for code changes
+- Work in the source tree that owns the code for changes
 - Use the memory pipeline for decisions and outcomes
 - Use file-based handoffs for multi-session or cross-agent work
 

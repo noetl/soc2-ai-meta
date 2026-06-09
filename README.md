@@ -1,14 +1,14 @@
-# {{PROJECT_NAME}} AI Meta
+# {{PROJECT_NAME}} AI Project Template
 
-Coordination repository and shared memory layer for the **{{PROJECT_NAME}}** ecosystem.
+Reusable starter repository for AI-assisted projects.
 
-This repo tracks participating repositories as git submodules, keeps durable AI memory in Git, and provides shared rules, skills, and profiles for multiple coding agents.
+This template provides durable project memory in Git, shared agent instructions, and optional coordination patterns for multi-agent or multi-repo workflows.
 
-It also includes a file-based cross-agent handoff protocol so long-running work can move between Claude, Copilot/Codex, Cursor, Gemini, and future tools without losing context.
+It also includes a file-based handoff protocol for teams that want durable handoff threads between coding agents without losing context.
 
-## Bootstrap a New Agentic-Memory Repo
+## Bootstrap a New Project Repo
 
-Use this template, then run the included initializer once to replace all placeholders and set up symlinks.
+Use this template, then run the included initializer once to replace all placeholders and set up the local workspace.
 
 ```bash
 # 1) Clone your new meta repository created from this template
@@ -27,18 +27,13 @@ What `init.sh` does:
 - Initializes git (if needed), creates an initial commit, and optionally sets `origin`.
 - Removes `init.sh` after successful setup.
 
-After initialization, use standard update flow:
-
-```bash
-git submodule sync --recursive
-git submodule update --init --recursive
-```
+If your project uses linked repositories, initialize them after setup with the commands your workflow requires.
 
 ## What This Repo Contains
 
-- **`repos/`** — all ecosystem repos as git submodules (pinned SHAs)
+- **`repos/`** — optional linked repositories or subprojects
 - **`memory/`** — Git-tracked long memory (inbox → compaction → current state)
-- **`sync/`** — cross-repo "what changed" notes (PR links, SHAs, follow-ups)
+- **`sync/`** — change notes that capture links, SHAs, and follow-ups
 - **`agents/`** — shared AI agent rules, skills, and profiles
 - **`playbooks/`** — repeatable checklists for common tasks
 - **`handoffs/`** — durable cross-agent prompt/result threads
@@ -46,18 +41,18 @@ git submodule update --init --recursive
 
 ## Memory Layers
 
-This template uses layered memory, where Git remains durable source of truth for agent operations:
+This template uses layered memory, where Git remains the durable source of truth for agent operations:
 
 1. **Local repository memory (required)**
 	- `memory/current.md`, `memory/inbox/`, `memory/compactions/`, `memory/timeline.md`
 2. **Work-item memory (recommended)**
-	- GitHub Issues and optionally Jira for durable task state, blockers, and acceptance criteria
+	- GitHub Issues, Jira, or another tracker for durable task state, blockers, and acceptance criteria
 3. **Knowledge memory (recommended)**
-	- GitHub Wiki and/or Confluence for durable architecture, runbooks, and policy pages
+	- GitHub Wiki, Confluence, or another docs system for durable architecture, runbooks, and policy pages
 4. **Coordination memory (recommended)**
-	- `sync/issues/` notes that link submodule PRs, SHAs, and external ticket/wiki IDs
+	- `sync/` notes that link PRs, SHAs, and external tracker/docs IDs
 
-See `agents/rules/external-memory-systems.md` for strict operating rules.
+See `agents/rules/external-memory-systems.md` for extension patterns.
 
 ## Repository Layout
 
@@ -74,7 +69,7 @@ See `agents/rules/external-memory-systems.md` for strict operating rules.
 │   ├── settings.json                  #   Permissions and hooks
 │   ├── rules -> ../agents/rules       #   Symlink to shared rules
 │   └── skills -> ../agents/skills     #   Symlink to shared skills
-├── handoffs/                          # Cross-agent file handoff channel
+├── handoffs/                          # Optional cross-agent file handoff channel
 │   ├── active/                        #   In-flight threads
 │   ├── archive/                       #   Closed threads
 │   └── templates/                     #   prompt/result templates
@@ -87,18 +82,17 @@ See `agents/rules/external-memory-systems.md` for strict operating rules.
 ├── sync/                              # Cross-repo change notes
 ├── playbooks/                         # Operational checklists
 ├── scripts/                           # Memory and automation helpers
-└── repos/                             # Git submodules
+└── repos/                             # Optional linked repositories
 ```
 
 ## Day-to-Day Workflow
 
-1. **Work in submodules** — code changes happen inside `repos/<name>`
-2. **Open PRs upstream** — each submodule has its own remote
-3. **Bump pointers** — update submodule SHAs after merges
-4. **Write sync notes** — capture what changed across repos
-5. **Add memory entries** — record decisions and outcomes
-6. **Compact periodically** — keep active memory small
-7. **Keep external memory in sync** — update linked issues/tickets/wiki pages when state changes
+1. **Work in the project source** — keep product code out of the template repo unless you intentionally fork it into a working project
+2. **Open PRs where your source lives** — whether that is this repo, a monorepo, or linked repositories
+3. **Record coordination changes** — capture what changed across repos or project areas
+4. **Add memory entries** — record decisions and outcomes
+5. **Compact periodically** — keep active memory small
+6. **Keep external memory in sync** — update linked issues/tickets/wiki pages when state changes
 
 ## Cross-Agent Handoff Workflow
 
@@ -108,7 +102,7 @@ See `agents/rules/external-memory-systems.md` for strict operating rules.
 4. Continue with additional rounds as needed
 5. Move completed thread to `handoffs/archive/`
 
-See `handoffs/README.md` and `agents/rules/handoffs.md`.
+See `handoffs/README.md` and `agents/rules/handoffs.md` if you use handoffs.
 
 ## Memory Commands
 
@@ -125,12 +119,12 @@ See `handoffs/README.md` and `agents/rules/handoffs.md`.
 - `memory(add): <topic>` — new memory entry
 - `memory(compact): <scope>` — compaction run
 - `memory(curate): <scope>` — manual current.md refresh
-- `chore(sync): bump <repo> to <sha>` — submodule pointer update
+- `chore(sync): bump <repo> to <sha>` — linked-repo pointer update
 - `docs(agents): <description>` — agent infrastructure changes
 
 ## Extended Memory Storage (Jira, GitHub, Confluence)
 
-This template supports using external systems as memory extensions:
+This template supports using external systems as memory extensions when you need them:
 
 - **GitHub Issues**: durable task lifecycle, acceptance criteria, blocker tracking
 - **Jira**: program-level planning, sprint ownership, status and dependencies
@@ -140,17 +134,19 @@ This template supports using external systems as memory extensions:
 Recommended linking pattern for every substantive cross-repo task:
 
 - One issue/ticket ID (`GH-123` or `PROJ-123`)
-- One or more submodule PR links
+- One or more PR links
 - One memory entry in `memory/inbox/`
 - One sync note in `sync/issues/`
 - Zero or more wiki/confluence pages
 
-## Adding Submodules
+## Linking Repositories
 
 ```bash
 git submodule add {{REPO_PREFIX}}/<repo-name>.git repos/<repo-name>
 git commit -m "chore(sync): add <repo-name> submodule"
 ```
+
+If you do not use linked repositories, replace this step with the repo-linking or dependency setup your project requires.
 
 ## AI Agent Support
 
