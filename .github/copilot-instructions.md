@@ -1,6 +1,6 @@
 # GitHub Copilot Instructions
 
-This is the coordination repository for the **{{PROJECT_NAME}}** project template.
+This is the coordination repository for the **noetl SOC2** project template.
 
 ## Required reading
 

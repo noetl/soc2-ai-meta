@@ -1,10 +1,10 @@
-# {{PROJECT_NAME}} AI Instructions
+# noetl SOC2 AI Instructions
 
 This file defines mandatory behavior for AI agents operating in this repository.
 
 ## Scope
 
-- Applies to the entire `{{PROJECT_NAME}}` coordination repository.
+- Applies to the entire `noetl SOC2` coordination repository.
 
 ## Mission
 
