@@ -13,7 +13,7 @@ create_issue() {
     -H "Authorization: Bearer $TOKEN" \
     -H "Accept: application/vnd.github+json" \
     -d "{\"title\": $(echo "$title" | python3 -c 'import sys,json; print(json.dumps(sys.stdin.read().strip()))'), \"body\": $(echo "$body" | python3 -c 'import sys,json; print(json.dumps(sys.stdin.read().strip()))'), \"labels\": $labels}" \
-    | python3 -c 'import sys,json; d=json.load(sys.stdin); print(f"#{d[\"number\"]} {d[\"title\"]} -> {d[\"html_url\"]}")'
+    | python3 -c 'import sys,json; d=json.load(sys.stdin); n=str(d["number"]); t=d["title"]; u=d["html_url"]; print("#"+n+" "+t+" -> "+u)'
 }
 
 echo "Creating SOC2 compliance issues in $REPO..."
